@@ -27,3 +27,8 @@ C:\C#\ContosoPets.Api\obj\Debug\net5.0\ContosoPets.Api.dll
 C:\C#\ContosoPets.Api\obj\Debug\net5.0\ref\ContosoPets.Api.dll
 C:\C#\ContosoPets.Api\obj\Debug\net5.0\ContosoPets.Api.pdb
 C:\C#\ContosoPets.Api\obj\Debug\net5.0\ContosoPets.Api.genruntimeconfig.cache
+C:\C#\ContosoPets.Api\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\C#\ContosoPets.Api\bin\Debug\net5.0\Microsoft.Bcl.HashCode.dll
+C:\C#\ContosoPets.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\C#\ContosoPets.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\C#\ContosoPets.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll

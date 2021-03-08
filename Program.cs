@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
+using ContosoPets.Api;
+using ContosoPets.Api.Data;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace ContosoPets.Api
 {
@@ -13,7 +12,7 @@ namespace ContosoPets.Api
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().SeedDatabase().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,5 +21,20 @@ namespace ContosoPets.Api
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+    }
+
+    public static class IHostExtensions
+    {
+        public static IHost SeedDatabase(this IHost host)
+        {
+            var scopeFactory = host.Services.GetRequiredService<IServiceScopeFactory>();
+            using var scope = scopeFactory.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<ContosoPetsContext>();
+
+            if (context.Database.EnsureCreated())
+                SeedData.Initialize(context);
+
+            return host;
+        }
     }
 }
